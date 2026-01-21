@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORCE BG</title>
+  <link rel="stylesheet" href="../style.css" />
+ <style>
+    /* Hero Section with Video Background */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      line-height: 1.2;
+    }
+    
+    .hero .btn {
+      background: var(--white);
+      color: var(--primary-blue);
+      padding: 15px 40px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero .btn:hover {
+      background: var(--secondary-blue);
+      color: var(--white);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Overlay for better text readability */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 75, 140, 0.4);
+      z-index: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+    .testimonials-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 0 20px;
+    }
+    
+    .testimonial {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .customer-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--secondary-blue);
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .testimonial-text::before,
+    .testimonial-text::after {
+      content: '"';
+      color: var(--secondary-blue);
+      opacity: 0.3;
+      font-size: 1.5rem;
+      font-family: Georgia, serif;
+    }
+    
+    .customer-name {
+      font-weight: bold;
+      color: var(--primary-blue);
+      margin-top: 10px;
+    }
+    
+    .customer-title {
+      color: var(--dark-gray);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+@media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+      <div class="logo"><img src="../logo.png">ORCE BG</div>
+    <nav>
+      <ul>
+          <li><a href="search.html" class="search"><img src="../search.png"></a></li>
+        <li><a href="profile.php">Профил</a></li>
+        <li><a href="#home">Начало</a></li>
+        <li><a href="#about">За нас</a></li>
+        <li><a href="#models">Модели</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li><a href="../index.html">Изход</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <video autoplay muted loop playsinline class="video-background">
+      <source src="../car_video.mp4" type="video/mp4">
+      <!-- Fallback image if video doesn't load -->
+      <img src="" alt="Hero Background" style="width: 100%; height: 100%; object-fit: cover;">
+    </video>
+    <div class="video-overlay"></div>
+    
+    <div class="hero-content">
+      <h1>Don't dream<br>just drive</h1>
+      <a href="#models" class="btn">Виж моделите</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Кои сме ние?</h2>
+    <p>„FORCE BG“ ООД е фирма със седалище във Варна, специализирана в продажбата на качествени автомобили и предоставянето на свързани услуги като застраховки и технически проверки.</p>
+  </section>
+
+  <section id="models" class="models">
+    <h2>Нашите модели</h2>
+    <div class="model-grid">
+      <div class="model">
+          <a href="jugan.php">
+          <img src="../car1.jpg" alt="Force Jugan">
+          </a>
+          <p>Force Jugan</p>
+      </div>
+      <div class="model">
+          <a href="nature.php">
+        <img src="../car2.jpg" alt="Force Nature">
+          </a>
+        <p>Force Nature</p>
+      </div>
+      <div class="model">
+          <a href="fent.php">
+        <img src="../car3.jpg" alt="Force Fent">
+          </a>
+        <p>Force Fent</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Мнения на клиентите ни</h2>
+    <div class="testimonials-container">
+      <div class="testimonial">
+        <img src="../Johnson.jpg" alt="Alia Johnson" class="customer-photo">
+        <div class="testimonial-text">
+          Force е бъдещето! Напълно доволен съм от покупката и обслужването.
+        </div>
+        <div class="customer-name">Alia Johnson</div>
+        <div class="customer-title">Собственик на Force Jugan от 2024</div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="../Otunga.jpg" alt="David Otunga" class="customer-photo">
+        <div class="testimonial-text">
+          Най-добрата кола, която съм виждал! Препоръчвам FORCE BG на всички.
+        </div>
+        <div class="customer-name">David Otunga</div>
+        <div class="customer-title">Собственик на Force Fent от 2023</div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="../minase.jpg" alt="Maria Petrova" class="customer-photo">
+        <div class="testimonial-text">
+          Професионално обслужване и страхотни автомобили. Благодаря на екипа!
+        </div>
+        <div class="customer-name">Inori Minase</div>
+        <div class="customer-title">Собственик на Force Nature от 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Контакти</h2>
+    <p>Телефон: 089 423 6584</p>
+    <p>Email: force.ltd.11g@gmail.com</p>
+    <p>Адрес: кв. Младост 2, Варна</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FORCE BG</p>
+  </footer>
+    
+</body>
+</html>

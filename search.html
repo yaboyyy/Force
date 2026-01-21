@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Търсене - FORCE BG</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .search-page {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .search-container {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+    
+    .search-box {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid var(--primary-blue);
+      border-radius: 30px;
+      font-size: 1.1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .search-input:focus {
+      border-color: var(--secondary-blue);
+      box-shadow: 0 0 10px rgba(42, 111, 219, 0.2);
+    }
+    
+    .search-button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .search-button:hover {
+      background: var(--secondary-blue);
+    }
+    
+    .search-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .result-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .result-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .result-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 3px solid var(--secondary-blue);
+    }
+    
+    .result-content {
+      padding: 20px;
+    }
+    
+    .result-title {
+      color: var(--primary-blue);
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 50px;
+      color: var(--dark-gray);
+      font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .search-results {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="logo.png">ORCE BG</div>
+    <nav>
+      <ul>
+        <li><a href="" class="search"><img src="search.png"></a></li>
+        <li><a href="login.php">Вход</a></li>
+        <li><a href="index.html#home">Начало</a></li>
+        <li><a href="index.html#about">За нас</a></li>
+        <li><a href="index.html#models">Модели</a></li>
+        <li><a href="index.html#contact">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="search-page">
+    <div class="search-container">
+      <h2>Търсене на автомобили</h2>
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Въведете модел или ключова дума..." id="searchInput">
+        <button class="search-button" id="searchButton">Търси</button>
+      </div>
+    </div>
+    
+    <div id="searchResults" class="search-results">
+      <!-- Results will be displayed here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FORCE BG</p>
+  </footer>
+
+  <script>
+    // Sample data for the car models
+    const carModels = [
+      {
+        name: "Force Jugan",
+        image: "car1.jpg",
+        description: "Спортен седан с високи характеристики и луксозен интериор.",
+        link: "jugan.html"
+      },
+      {
+        name: "Force Nature",
+        image: "car2.jpg",
+        description: "Електрически SUV с екологичен дизайн и дълъг пробег.",
+        link: "nature.html"
+      },
+      {
+        name: "Force Fent",
+        image: "car3.jpg",
+        description: "Компактен градски автомобил с икономичен разход и модерен дизайн.",
+        link: "fent.html"
+      }
+    ];
+
+    // Function to perform search
+    function performSearch() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const resultsContainer = document.getElementById('searchResults');
+      
+      // Clear previous results
+      resultsContainer.innerHTML = '';
+      
+      // Filter car models
+      const filteredModels = carModels.filter(model => 
+        model.name.toLowerCase().includes(searchTerm) || 
+        model.description.toLowerCase().includes(searchTerm)
+      );
+      
+      // Display results
+      if (filteredModels.length > 0) {
+        filteredModels.forEach(model => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'result-item';
+          resultItem.innerHTML = `
+            <a href="${model.link}">
+              <img src="${model.image}" alt="${model.name}">
+              <div class="result-content">
+                <h3 class="result-title">${model.name}</h3>
+                <p>${model.description}</p>
+              </div>
+            </a>
+          `;
+          resultsContainer.appendChild(resultItem);
+        });
+      } else {
+        resultsContainer.innerHTML = '<div class="no-results">Няма намерени резултати за вашата заявка.</div>';
+      }
+    }
+    
+    // Event listeners
+    document.getElementById('searchButton').addEventListener('click', performSearch);
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+    
+    // Perform search on page load if there's a URL parameter
+    window.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+      if (query) {
+        document.getElementById('searchInput').value = query;
+        performSearch();
+      }
+    });
+  </script>
+</body>
+</html>

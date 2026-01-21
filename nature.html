@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORCE BG | Force  Jugan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .model-detail {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    
+    .model-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .model-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .model-info h1 {
+      color: var(--primary-blue);
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .model-specs {
+      margin: 30px 0;
+    }
+    
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .spec-name {
+      font-weight: 600;
+      color: var(--primary-blue);
+    }
+    
+    .spec-value {
+      color: var(--dark-gray);
+    }
+    
+    .price {
+      font-size: 1.8rem;
+      color: var(--secondary-blue);
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    
+    .btn-contact {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-contact:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(42, 111, 219, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .model-detail {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="logo.png">ORCE BG</div>
+    <nav>
+      <ul>
+        <li><a href="login.php">Вход</a></li>
+        <li><a href="index.html#home">Начало</a></li>
+        <li><a href="index.html#about">За нас</a></li>
+        <li><a href="index.html#models">Модели</a></li>
+        <li><a href="index.html#contact">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="model-detail">
+    <div class="model-image">
+      <img src="car2.jpg" alt="Nature 1">
+    </div>
+    
+    <div class="model-info">
+      <h1>Модел 2 - Force  Nature</h1>
+      <p>За първи път в нашата компания представяме първия наш електричен автомобил.Този модел е възможно най-безопасния и най-малко застрашаващия природата автомобил.С конски сили 100 Force Nature е идеален за семейство поради голямото пространство в автомобила и поради големия си комфорт.Ако искате да създадете уникални преживявания на вас и семейството ви може да закупите Force Nature от нашия магазин за автомобили Force.</p>
+      
+      <div class="model-specs">
+        <div class="spec-item">
+          <span class="spec-name">Двигател:</span>
+          <span class="spec-value">2.0L Turbo (600 к.с.)</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-name">Скоростна кутия:</span>
+          <span class="spec-value">8-степенна автоматична</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-name">Разход:</span>
+          <span class="spec-value">2.5L/100km комбиниран</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-name">Задвижване:</span>
+          <span class="spec-value">Пълно (AWD)</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-name">Брой места:</span>
+          <span class="spec-value">5</span>
+        </div>
+      </div>
+      
+      <div class="price">Цена: 70 000 лв.</div>
+      <a href="index.html#contact" class="btn-contact">Запитване</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FORCE BG</p>
+  </footer>
+</body>
+</html>
